@@ -114,13 +114,7 @@ public class BinaryTree implements Iterable<Integer> {
 
         }
 
-        // we start all the way at the bottom left with the pointer pointing at null.
-        // We then pop the stack and set that node to curr, and check if curr has
-        // branches down to the right.
-        // If it does we push that to the stack and all the branches down left from it.
-        // we then return the value of curr. This way next time we call this method the
-        // top node on the stack will be the node furthest down on the left of the node
-        // on the right of curr and should thus be the next smallest key in the tree
+   
         @Override
         public Integer next() {
             if (!hasNext()) {
@@ -134,9 +128,6 @@ public class BinaryTree implements Iterable<Integer> {
             return focusNode.value;
         }
 
-        // we want to move all the way down left first so as long as current
-        // isn't null we push the current node to the stack and then move
-        // down left till we reach the null pointer
         private void moveLeft(Node focusNode) {
             while (focusNode != null) {
                 stack.push(focusNode);
